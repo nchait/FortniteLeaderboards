@@ -1,0 +1,130 @@
+<div class="div" *ngIf="show; else Loading">
+  <mat-tab-group [selectedIndex]="selected.value"
+               (selectedIndexChange)="selected.setValue($event)">
+    <mat-tab *ngFor="let tab of views; let index = index" [disabled]="buts[index]">
+      <ng-template mat-tab-label>
+        <img src={{tab.iconLink}} class="icon">
+        {{tab.title}}
+      </ng-template>
+      <div class="col-xs-12" style="height:500px">
+        <h2 class="col-xs-12 text-center">
+          Lifetime Totals: {{stats[selected.value].object.username}} 
+        </h2>
+        <div class="col-xs-4 text-center">
+          Hours Played: {{stats[selected.value].object.totals.hoursplayed}} 
+        </div>
+        <div class="col-xs-4 text-center">
+          Kills: {{stats[selected.value].object.totals.kills}}
+        </div>
+        <div class="col-xs-4 text-center">
+          Matches Played: {{stats[selected.value].object.totals.matchesplayed}}
+        </div>
+        <div class="col-xs-4 text-center">
+            Minutes Played: {{stats[selected.value].object.totals.minutesplayed}} 
+        </div>
+        <div class="col-xs-4 text-center">
+          K/D Ratio: {{stats[selected.value].object.totals.kd}}
+        </div>
+        <div class="col-xs-4 text-center">
+          Wins: {{stats[selected.value].object.totals.wins}}
+        </div>  
+        <div class="col-xs-12 text-center">
+          <h4>
+              Score: {{stats[selected.value].object.totals.score}}
+          </h4>
+        </div>
+        <mat-divider class="col-xs-12 text-center" style="margin:2px"></mat-divider>
+        <div class="col-xs-4 text-left" style="display: block">
+          <h2 class="col-xs-12 text-center"> Solo </h2>
+          <p class="col-xs-12 ">
+              Minutes Played: {{stats[selected.value].object.stats.minutesplayed_solo}} 
+          </p>
+          <p class="col-xs-12 ">
+              Kills: {{stats[selected.value].object.stats.kills_solo}}
+          </p>
+          <p class="col-xs-12">
+              K/D Ratio: {{stats[selected.value].object.stats.kd_solo}}
+          </p>
+          <p class="col-xs-12">
+              Matches Played: {{stats[selected.value].object.stats.matchesplayed_solo}}
+          </p>
+          <h4 class="col-xs-12">
+              Score: {{stats[selected.value].object.stats.score_solo}}
+          </h4>
+          <canvas baseChart
+            [data]="chartData[index][0].data"
+            [labels]="chartData[index][0].labels"
+            [chartType]="pie"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"
+            height="300px"></canvas>
+        </div>   
+        <div class="col-xs-4 text-left" style="display: block">
+            <h2 class="col-xs-12 text-center"> Duo </h2>
+            <p class="col-xs-12 ">
+                Minutes Played: {{stats[selected.value].object.stats.minutesplayed_duo}} 
+            </p>
+            <p class="col-xs-12 ">
+                Kills: {{stats[selected.value].object.stats.kills_duo}}
+            </p>
+            <p class="col-xs-12">
+                K/D Ratio: {{stats[selected.value].object.stats.kd_duo}}
+            </p>
+            <p class="col-xs-12">
+                Matches Played: {{stats[selected.value].object.stats.matchesplayed_duo}}
+            </p>
+            <h4 class="col-xs-12">
+                Score: {{stats[selected.value].object.stats.score_duo}}
+            </h4>
+            <canvas baseChart
+            [data]="chartData[index][1].data"
+            [labels]="chartData[index][1].labels"
+            [chartType]="pie"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"
+            height="300px"></canvas>
+        </div>   
+        <div class="col-xs-4 text-left" style="display: block">
+            <h2 class="col-xs-12 text-center"> Squad </h2>
+            <p class="col-xs-12 ">
+                Minutes Played: {{stats[selected.value].object.stats.minutesplayed_squad}} 
+            </p>
+            <p class="col-xs-12 ">
+                Kills: {{stats[selected.value].object.stats.kills_squad}}
+            </p>
+            <p class="col-xs-12">
+                K/D Ratio: {{stats[selected.value].object.stats.kd_squad}}
+            </p>
+            <p class="col-xs-12">
+                Matches Played: {{stats[selected.value].object.stats.matchesplayed_squad}}
+            </p>
+            <h4 class="col-xs-12">
+                Score: {{stats[selected.value].object.stats.score_squad}}
+            </h4>
+            <canvas baseChart
+            [data]="chartData[index][2].data"
+            [labels]="chartData[index][2].labels"
+            [chartType]="pie"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"
+            height="300px"></canvas>
+        </div>      
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+<ng-template #Loading >
+  
+  <div class="col-xs-12">
+      <mat-progress-spinner style="margin:0 auto;" mode="indeterminate"></mat-progress-spinner>
+  </div>
+  <div class="col-xs-12 text-center">
+    Loading...
+  </div>
+  <div class="col-xs-12 text-center">
+    If the loading persists, try again and check your spelling for custom entries.
+  </div>
+  <div class="col-xs-12 text-center">
+    Some of the names on the leaderboards have been changed which means their user profile cannot be found.
+  </div>
+</ng-template>
