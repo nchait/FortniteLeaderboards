@@ -539,7 +539,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Noah\Desktop\GitHub\signal\signal\src\styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! C:\Users\Noah\Desktop\GitHub\ForniteLeaderboards\signal\signal\src\styles.css */"./src/styles.css");
 
 
 /***/ })

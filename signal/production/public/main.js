@@ -384,7 +384,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _denial_modal_denial_modal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./denial-modal/denial-modal.component */ "./src/app/denial-modal/denial-modal.component.ts");
-/* harmony import */ var _fortniteStats_fortnite_stats_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./fortniteStats/fortnite-stats.service */ "./src/app/fortniteStats/fortnite-stats.service.ts");
+/* harmony import */ var _services_fortniteStats_fortnite_stats_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./services/fortniteStats/fortnite-stats.service */ "./src/app/services/fortniteStats/fortnite-stats.service.ts");
 /* harmony import */ var _main_main_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./main/main.component */ "./src/app/main/main.component.ts");
 /* harmony import */ var _profile_modal_profile_modal_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./profile-modal/profile-modal.component */ "./src/app/profile-modal/profile-modal.component.ts");
 /* harmony import */ var _footer_footer_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./footer/footer.component */ "./src/app/footer/footer.component.ts");
@@ -444,7 +444,7 @@ var AppModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatTooltipModule"]
             ],
             providers: [
-                _fortniteStats_fortnite_stats_service__WEBPACK_IMPORTED_MODULE_9__["FortniteStatsService"]
+                _services_fortniteStats_fortnite_stats_service__WEBPACK_IMPORTED_MODULE_9__["FortniteStatsService"]
             ],
             entryComponents: [
                 _profile_modal_profile_modal_component__WEBPACK_IMPORTED_MODULE_11__["ProfileModalComponent"],
@@ -478,7 +478,7 @@ module.exports = ".outWide {\r\n    position: relative;\r\n    text-align: cente
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"outWide\" style=\"justify-content:center; width:100%; overflow:hidden;\">\n  <img src={{banner}} alt=\"Snow\" style=\"width:100%;\">\n</div>\n\n<div class=\"container\">\n  <mat-card class= \"text-center\" style= \"margin:10px\">\n    <h1 class=\"text-center\">\n      FortBoard\n    </h1>\n    Your source for up-to-date Fortnite leaderboards and user information\n    <br> <br>\n    <mat-divider ></mat-divider>\n    <br>\n    For the website to function in a lightweight fashion, that is to say \n    without a dedicated server, you must download this chrome extension. \n\n    <br>\n    <a src=\"https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi\">\n      Chrome Store\n    </a>\n    <br>\n    Please click on a name in the table to see the full capabilities of the application\n\n  </mat-card>      \n</div>\n\n"
+module.exports = "<!-- the top banner, notice how I filled src using Angular binding -->\n<div class=\"outWide\" style=\"justify-content:center; width:100%; overflow:hidden;\">\n  <img src={{banner}} alt=\"Snow\" style=\"width:100%;\">\n</div>\n<!-- first card -->\n<div class=\"container\">\n  <mat-card class= \"text-center\" style= \"margin:10px\">\n    <h1 class=\"text-center\">\n      FortBoard\n    </h1>\n    Your source for up-to-date Fortnite leaderboards and user information. <br>\n    Please click on a name in the table to see the full capabilities of the application. <br>\n    Inspect the console to see where my get requests were sent to.\n\n\n  </mat-card>      \n</div>\n\n"
 
 /***/ }),
 
@@ -505,8 +505,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var BannerComponent = /** @class */ (function () {
     function BannerComponent() {
+        // this is the link of the Fortnite banner
         this.banner = "http://gamerselite.com/wp-content/uploads/2018/01/fortnite-epic-games-development-news-banner.jpg";
-        this.grad = "https://i.pinimg.com/originals/78/b6/18/78b618e9387e322c227d29f0338b9571.jpg";
     }
     BannerComponent.prototype.ngOnInit = function () {
     };
@@ -543,7 +543,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-xs-12 text-center\">\n    A valid Epic ID must more than 3 characters\n</div>\n<div class=\"col-xs-12 text-center\">\n  <button mat-raised-button (click)=\"closeDialog()\"> close </button>\n</div>\n"
+module.exports = "<div class=\"col-xs-12 text-center\">\n    A valid Epic ID must more than 3 characters\n</div>\n<div class=\"col-xs-12 text-center\">\n  <!-- recognize the native Angular (click) function -->\n  <button mat-raised-button (click)=\"closeDialog()\"> close </button>\n</div>\n"
 
 /***/ }),
 
@@ -575,6 +575,8 @@ var DenialModalComponent = /** @class */ (function () {
         this.dialogRef = dialogRef;
     }
     DenialModalComponent.prototype.closeDialog = function () {
+        //used to close the dialog on click
+        //uses the reference to the dialog itself created in the constructor
         this.dialogRef.close();
     };
     DenialModalComponent.prototype.ngOnInit = function () {
@@ -612,7 +614,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"width:100%;height:100px; background-color: black; color:white; margin-top:10px\">\n  <div class=\"col-xs-6\" style=\"top:40px; color:white\">\n    Noah Chait 2018\n  </div>\n  <div class=\"col-xs-6\">\n\n  </div>\n\n</div>\n"
+module.exports = "<!-- very simple all black footer -->\n<div style=\"width:100%;height:100px; background-color: black; color:white; margin-top:10px\">\n  <div class=\"col-xs-6\" style=\"top:40px; color:white\">\n    Noah Chait 2018\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -657,209 +659,6 @@ var FooterComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/fortnite-API/fortnite-api.service.ts":
-/*!******************************************************!*\
-  !*** ./src/app/fortnite-API/fortnite-api.service.ts ***!
-  \******************************************************/
-/*! exports provided: FortniteApiService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FortniteApiService", function() { return FortniteApiService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var FortniteApiService = /** @class */ (function () {
-    function FortniteApiService(http) {
-        this.http = http;
-    }
-    FortniteApiService.prototype.callFortniteAPI = function (callback_fun, ID) {
-        var _this = this;
-        console.log("Get request sent to: https://fortnite-public-api.theapinetwork.com/prod09/users/id?username=" + encodeURI(ID));
-        this.http.get("api/FortniteAPI/username/" + encodeURI(ID))
-            .subscribe(function (data) {
-            var res = JSON.parse(data._body);
-            var stats = [
-                { object: null },
-                { object: null },
-                { object: null }
-            ];
-            try {
-                if (res.error) {
-                    callback_fun(stats);
-                    return;
-                }
-            }
-            catch (error) {
-                console.log(error);
-            }
-            // console.log(res)
-            _this.getStats(callback_fun, res, 0, stats, ID);
-            // callback_fun();
-        }, function (error) {
-            console.log(error);
-        } // error path
-        );
-    };
-    FortniteApiService.prototype.getStats = function (callback_fun, res, i, stats, ID) {
-        var _this = this;
-        if (i >= res.platforms.length) {
-            callback_fun(stats, ID);
-            return;
-        }
-        // console.log(stats)
-        var params = "user_id=" + res.uid +
-            "&platform=" + res.platforms[i];
-        console.log("Get request sent to: https://fortnite-public-api.theapinetwork.com/prod09/users/public/br_stats?" + params);
-        this.http.get("api/FortniteAPI/stats/" + params)
-            .subscribe(function (data) {
-            if ("pc" == res.platforms[i]) {
-                stats[0].object = JSON.parse(data._body);
-            }
-            else if ("xb1" == res.platforms[i]) {
-                stats[1].object = JSON.parse(data._body);
-            }
-            else if ("ps4" == res.platforms[i]) {
-                stats[2].object = JSON.parse(data._body);
-            }
-            _this.getStats(callback_fun, res, i + 1, stats, ID);
-            // console.log(stats)
-            // callback_fun();
-        }, function (error) {
-            console.log(error);
-        } // error path
-        );
-    };
-    FortniteApiService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
-            providedIn: 'root'
-        }),
-        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"]])
-    ], FortniteApiService);
-    return FortniteApiService;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/fortniteStats/fortnite-stats.service.ts":
-/*!*********************************************************!*\
-  !*** ./src/app/fortniteStats/fortnite-stats.service.ts ***!
-  \*********************************************************/
-/*! exports provided: FortniteStatsService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FortniteStatsService", function() { return FortniteStatsService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var FortniteStatsService = /** @class */ (function () {
-    function FortniteStatsService(http) {
-        this.http = http;
-        this.gameMode = ["all", "solo", "duo", "squad"];
-        this.sortCol = ["kd", "kills", "matches", "score", "winrate", "wins"];
-        this.platform = ["pc", "xbox", "ps4"];
-        //  order in FS
-        // 	Name-K/D-Kills-Wins-Matches-Winrate-Score
-        this.corrected = [
-            {
-                Name: 'Example',
-                KDRatio: '111',
-                Kills: '111',
-                Wins: '111',
-                Matches: '111',
-                Winrate: '111',
-                Score: '111'
-            }
-        ];
-        this.newRow = {
-            Name: 'Example',
-            KDRatio: '111',
-            Kills: '111',
-            Wins: '111',
-            Matches: '111',
-            Winrate: '111',
-            Score: '111'
-        };
-    }
-    FortniteStatsService.prototype.callFS = function (callback_fun, page, sortCol, gameMode, platform) {
-        var _this = this;
-        var params = "page=" + page +
-            "&sort=" + this.gameMode[gameMode] +
-            "-" + this.sortCol[sortCol] +
-            "+&platform=" + this.platform[platform];
-        console.log("Get request sent to: https://fortnitestats.net/?" + params);
-        this.http.get("api/FortniteStats/" + params)
-            .subscribe(function (data) {
-            var split = data._body.toString().split('<tr class="player-row">');
-            split[50] = split[50].split("/tbody>")[0];
-            _this.corrected = [];
-            var i = 0;
-            for (i = 0; i < 50; i++) {
-                var fSRow = split[i + 1];
-                var rowSplit = fSRow.split(">");
-                if (rowSplit.length != 20) {
-                    console.log("error: due to > character in name");
-                    console.log(fSRow);
-                }
-                else {
-                    // console.log(rowSplit)      
-                    _this.newRow = {
-                        Name: rowSplit[4].split("</a")[0],
-                        KDRatio: rowSplit[7].split("</td")[0],
-                        Kills: rowSplit[9].split("</td")[0],
-                        Wins: rowSplit[11].split("</td")[0],
-                        Matches: rowSplit[13].split("</td")[0],
-                        Winrate: rowSplit[15].split("</td")[0],
-                        Score: rowSplit[17].split("</td")[0]
-                    };
-                }
-                // console.log(newRow)
-                _this.corrected.push(_this.newRow);
-            }
-            callback_fun(_this.corrected);
-        }, function (error) {
-            console.log(error);
-        } // error path
-        );
-    };
-    FortniteStatsService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
-            providedIn: 'root'
-        }),
-        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"]])
-    ], FortniteStatsService);
-    return FortniteStatsService;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/main/main.component.css":
 /*!*****************************************!*\
   !*** ./src/app/main/main.component.css ***!
@@ -878,7 +677,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <mat-card class= \"text-center\" style= \"margin:10px\">  \n    <mat-card-header style= \" justify-content: center\">\n      <mat-card-title>Fortnite Leaderboards</mat-card-title>\n    </mat-card-header>\n    <mat-card-content>\n      <div class=\"col-xs-12\">\n        <mat-form-field style=\"margin:3px\">\n          <mat-select [(ngModel)]=\"selection[0]\"  placeholder=\"Sorting Statitstic\">\n            <mat-option *ngFor=\"let col of columnDropdownTitles; let i = index\" [value]=\"i\">{{ col }}</mat-option>\n          </mat-select>\n        </mat-form-field>\n        <mat-form-field style=\"margin:3px\">\n          <mat-select [(ngModel)]=\"selection[1]\" placeholder=\"Game Mode\">\n            <mat-option *ngFor=\"let g of gameMode; let i = index\" [value]=\"i\">{{ g }}</mat-option>\n          </mat-select>\n        </mat-form-field>\n        <mat-form-field style=\"margin:3px\">\n          <mat-select [(ngModel)]=\"selection[2]\" placeholder=\"Platform\">\n            <mat-option *ngFor=\"let p of platform; let i = index\" [value]=\"i\">{{ p }}</mat-option>\n          </mat-select>\n        </mat-form-field>\n      </div>\n    </mat-card-content>\n    <mat-card-actions>\n      <button mat-raised-button (click)=\"getFirstFSPage()\">Get Leaderboard</button>\n    </mat-card-actions>\n  </mat-card>\n  <mat-card class= \"text-center\" style= \"margin:10px\">  \n    <mat-card-header style= \" justify-content: center\">\n      <mat-card-title>Player Search</mat-card-title>\n    </mat-card-header>\n    <mat-card-content>\n      <div class=\"col-xs-12\">\n        <form [formGroup]=\"customIDEntryForm\" (ngSubmit)=\"customIDEntry()\">\n          <mat-form-field>\n            <input matInput placeholder=\"Enter an Epic ID\" formControlName=\"epicID\">\n          </mat-form-field>\n        </form>\n      </div>\n    </mat-card-content>\n    <mat-card-actions>\n        <button mat-raised-button (click)=\"customIDEntry()\">Get User Profile</button>\n    </mat-card-actions>\n  </mat-card>\n</div>\n<div class=\"container \" style=\"overflow-x:auto\">\n  <div style=\"min-width:450px\">\n    <div class=\"mat-elevation-z8\" style=\"margin-bottom:7px\"> \n      <table mat-table [dataSource]=\"dataSource\" style=\"width:100%;\">\n        <ng-container *ngFor=\"let col of displayedColumns; let i = index\" matColumnDef={{col}}>\n          <th mat-header-cell *matHeaderCellDef> {{columnTitles[i]}} </th>\n          <td mat-cell *matCellDef=\"let element\"> {{element[col]}} </td>\n        </ng-container>\n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns; sticky: true\"></tr>\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" (click)=\"openModal(row.Name)\"></tr>\n      </table>\n      <mat-paginator [pageSizeOptions]=\"[10, 20, 50]\" (page)=\"pageEvent = pageEv($event.pageIndex,$event.pageSize,$event.length)\" ></mat-paginator>\n    </div>\n  </div>\n</div>\n\n"
+module.exports = "<!-- second card, sorting choices -->\n<div class=\"container\">\n  <mat-card class= \"text-center\" style= \"margin:10px\">  \n    <mat-card-header style= \" justify-content: center\">\n      <mat-card-title>Fortnite Leaderboards</mat-card-title>\n    </mat-card-header>\n    <mat-card-content>\n      <div class=\"col-xs-12\">\n        <mat-form-field style=\"margin:3px\">\n          <mat-select [(ngModel)]=\"selection[0]\"  placeholder=\"Sorting Statitstic\">\n            <!-- for each column stated in the ts file -->\n            <mat-option *ngFor=\"let col of columnDropdownTitles; let i = index\" [value]=\"i\">{{ col }}</mat-option>\n          </mat-select>\n        </mat-form-field>\n        <mat-form-field style=\"margin:3px\">\n          <mat-select [(ngModel)]=\"selection[1]\" placeholder=\"Game Mode\">\n            <!-- for each game mode stated in the ts file -->\n            <mat-option *ngFor=\"let g of gameMode; let i = index\" [value]=\"i\">{{ g }}</mat-option>\n          </mat-select>\n        </mat-form-field>\n        <mat-form-field style=\"margin:3px\">\n          <mat-select [(ngModel)]=\"selection[2]\" placeholder=\"Platform\">\n            <!-- for each platform stated in the ts file -->\n            <mat-option *ngFor=\"let p of platform; let i = index\" [value]=\"i\">{{ p }}</mat-option>\n          </mat-select>\n        </mat-form-field>\n      </div>\n    </mat-card-content>\n    <mat-card-actions>\n      <!-- submit the sort options -->\n      <button mat-raised-button (click)=\"getFirstFSPage()\">Get Leaderboard</button>\n    </mat-card-actions>\n  </mat-card>\n</div>\n<!-- third card, custom ID entry -->\n<div class=\"container\">\n  <mat-card class= \"text-center\" style= \"margin:10px\">  \n    <mat-card-header style= \" justify-content: center\">\n      <mat-card-title>Player Search</mat-card-title>\n    </mat-card-header>\n    <mat-card-content>\n      <div class=\"col-xs-12\">\n        <!-- custom entry form -->\n        <form [formGroup]=\"customIDEntryForm\" (ngSubmit)=\"customIDEntry()\">\n          <mat-form-field>\n            <input matInput placeholder=\"Enter an Epic ID\" formControlName=\"epicID\">\n          </mat-form-field>\n        </form>\n      </div>\n    </mat-card-content>\n    <mat-card-actions>\n        <button mat-raised-button (click)=\"customIDEntry()\">Get User Profile</button>\n    </mat-card-actions>\n  </mat-card>\n</div>\n<!-- mat table styling -->\n<div class=\"container \" style=\"overflow-x:auto\">\n  <div style=\"min-width:450px\">\n    <div class=\"mat-elevation-z8\" style=\"margin-bottom:15px\"> \n      <!-- mat table start -->\n      <table mat-table [dataSource]=\"dataSource\" style=\"width:100%;\">\n        <!-- mat table columns -->\n        <ng-container *ngFor=\"let col of displayedColumns; let i = index\" matColumnDef={{col}}>\n          <!-- column titles stated in ts -->\n          <th mat-header-cell *matHeaderCellDef> {{columnTitles[i]}} </th>\n          <!-- for each subsequent row and grid item -->\n          <td mat-cell *matCellDef=\"let element\"> {{element[col]}} </td>\n        </ng-container>\n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns; sticky: true\"></tr>\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" (click)=\"openModal(row.Name)\"></tr>\n      </table>\n      <!-- Pagination is making pages in the table -->\n      <mat-paginator [pageSizeOptions]=\"[10, 20, 50]\" (page)=\"pageEvent = pageEv($event.pageIndex,$event.pageSize,$event.length)\" ></mat-paginator>\n    </div>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -893,7 +692,7 @@ module.exports = "<div class=\"container\">\n  <mat-card class= \"text-center\" 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MainComponent", function() { return MainComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _fortniteStats_fortnite_stats_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../fortniteStats/fortnite-stats.service */ "./src/app/fortniteStats/fortnite-stats.service.ts");
+/* harmony import */ var _services_fortniteStats_fortnite_stats_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/fortniteStats/fortnite-stats.service */ "./src/app/services/fortniteStats/fortnite-stats.service.ts");
 /* harmony import */ var _profile_modal_profile_modal_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../profile-modal/profile-modal.component */ "./src/app/profile-modal/profile-modal.component.ts");
 /* harmony import */ var _denial_modal_denial_modal_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../denial-modal/denial-modal.component */ "./src/app/denial-modal/denial-modal.component.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
@@ -913,6 +712,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+// placeholder for table
 var ELEMENT_DATA = [
     {
         Name: 'Example',
@@ -928,50 +728,53 @@ var MainComponent = /** @class */ (function () {
     function MainComponent(FSService, dialog) {
         this.FSService = FSService;
         this.dialog = dialog;
+        // these are used to present and sort the data for the table
         this.displayedColumns = ['Name', 'KDRatio', 'Kills', 'Wins', 'Matches', 'Winrate', 'Score'];
         this.columnTitles = ['Name', 'K/D Ratio', 'Kills', 'Wins', 'Matches', 'Winrate', 'Score'];
         this.columnDropdownTitles = ['K/D Ratio', 'Kills', 'Wins', 'Matches', 'Winrate', 'Score'];
         this.sortCol = ["kd", "kills", "matches", "score", "winrate", "wins"];
         this.gameMode = ["Overall", "Solo", "Duo", "Squad"];
         this.platform = ["PC", "Xbox One", "PS4"];
-        // this.FSService.callFS(this.onFSLoad.bind(this), page, sortCol, gameMode, platform)
+        // prepopulating the data
         this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](ELEMENT_DATA);
+        // form tracking for custom entries
         this.customIDEntryForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormGroup"]({
             epicID: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required),
         });
+        //preset it to K/D Ratio, Overall, and Xbox One
         this.selection = [0, 0, 1];
-        this.page = 0;
-        this.showing = false;
+        //autopopulate the table
         this.getFirstFSPage();
-        // this.openModal("nchait234erqw")
     }
     MainComponent.prototype.ngOnInit = function () {
         this.dataSource.paginator = this.paginator;
     };
     MainComponent.prototype.getFirstFSPage = function () {
-        // console.log(this.selection)
+        // reset the page
         this.page = 0;
+        // get the first page of the new leaderboard from fortnite stats website
         this.FSService.callFS(this.onFSLoad.bind(this), this.page, this.selection[0], this.selection[1], this.selection[2]);
     };
     MainComponent.prototype.getnextFSPage = function () {
-        // console.log(this.selection)
+        // set to the next page
         this.page++;
+        // get the next page of the new leaderboard from fortnite stats website
         this.FSService.callFS(this.onNextFSLoad.bind(this), this.page, this.selection[0], this.selection[1], this.selection[2]);
     };
     MainComponent.prototype.onFSLoad = function (list) {
-        // console.log(list)
+        // set the new list once its been recieved
         this.rawSource = list;
         this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](this.rawSource);
         this.dataSource.paginator = this.paginator;
     };
     MainComponent.prototype.onNextFSLoad = function (list) {
-        // console.log(list)
+        // add to the new list once its been recieved
         this.rawSource.push.apply(this.rawSource, list);
         this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](this.rawSource);
         this.dataSource.paginator = this.paginator;
     };
     MainComponent.prototype.pageEv = function (i, size, length) {
-        // console.log(i)
+        // decides whether we should load the next page now or not based on if we can populate the next page
         var last = (i + 1) * size;
         console.log(last);
         console.log(length);
@@ -980,14 +783,14 @@ var MainComponent = /** @class */ (function () {
         }
     };
     MainComponent.prototype.openModal = function (epicID) {
-        // console.log(epicID)
+        // search based on the given id, either table click or search
         var dialogRef = this.dialog.open(_profile_modal_profile_modal_component__WEBPACK_IMPORTED_MODULE_2__["ProfileModalComponent"], {
             width: '750px',
             data: { ID: epicID }
         });
     };
     MainComponent.prototype.customIDEntry = function () {
-        var epicID = this.customIDEntryForm.value.epicID;
+        var epicID = this.customIDEntryForm.value.epicID; // get the custom entry
         if (epicID.length > 3) {
             this.openModal(epicID);
         }
@@ -1007,7 +810,7 @@ var MainComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./main.component.html */ "./src/app/main/main.component.html"),
             styles: [__webpack_require__(/*! ./main.component.css */ "./src/app/main/main.component.css")]
         }),
-        __metadata("design:paramtypes", [_fortniteStats_fortnite_stats_service__WEBPACK_IMPORTED_MODULE_1__["FortniteStatsService"], _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatDialog"]])
+        __metadata("design:paramtypes", [_services_fortniteStats_fortnite_stats_service__WEBPACK_IMPORTED_MODULE_1__["FortniteStatsService"], _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatDialog"]])
     ], MainComponent);
     return MainComponent;
 }());
@@ -1050,7 +853,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileModalComponent", function() { return ProfileModalComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _fortnite_API_fortnite_api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../fortnite-API/fortnite-api.service */ "./src/app/fortnite-API/fortnite-api.service.ts");
+/* harmony import */ var _services_fortnite_API_fortnite_api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/fortnite-API/fortnite-api.service */ "./src/app/services/fortnite-API/fortnite-api.service.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1073,113 +876,75 @@ var ProfileModalComponent = /** @class */ (function () {
         this.dialogRef = dialogRef;
         this.data = data;
         this.fortniteAPI = fortniteAPI;
-        // Pie
+        // the package needs me to state a chart type
         this.pie = 'pie';
+        // the buttons are referringthe platform tabs, if true then disabled
         this.buts = [false, false, false];
+        // was the get request successful
         this.show = false;
-        this.invalid = false;
+        // how I keep track of which tab were on
+        this.selected = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](0);
+        // prefill the pie charts
         this.chartData = [
             [
-                {
-                    labels: ["Victories", "Top 10", "Top 25", "Other"],
-                    data: [0, 0, 0, 1]
-                },
-                {
-                    labels: ["Victories", "Top 5", "Top 12", "Other"],
-                    data: [0, 0, 0, 1]
-                },
-                {
-                    labels: ["Victories", "Top 3", "Top 6", "Other"],
-                    data: [0, 0, 0, 1]
-                }
+                { labels: ["Victories", "Top 10", "Top 25", "Other"], data: [0, 0, 0, 1] },
+                { labels: ["Victories", "Top 5", "Top 12", "Other"], data: [0, 0, 0, 1] },
+                { labels: ["Victories", "Top 3", "Top 6", "Other"], data: [0, 0, 0, 1] }
             ], [
-                {
-                    labels: ["Victories", "Top 10", "Top 25", "Other"],
-                    data: [0, 0, 0, 1]
-                },
-                {
-                    labels: ["Victories", "Top 5", "Top 12", "Other"],
-                    data: [0, 0, 0, 1]
-                },
-                {
-                    labels: ["Victories", "Top 3", "Top 6", "Other"],
-                    data: [0, 0, 0, 1]
-                }
+                { labels: ["Victories", "Top 10", "Top 25", "Other"], data: [0, 0, 0, 1] },
+                { labels: ["Victories", "Top 5", "Top 12", "Other"], data: [0, 0, 0, 1] },
+                { labels: ["Victories", "Top 3", "Top 6", "Other"], data: [0, 0, 0, 1] }
             ], [
-                {
-                    labels: ["Victories", "Top 10", "Top 25", "Other"],
-                    data: [0, 0, 0, 1]
-                },
-                {
-                    labels: ["Victories", "Top 5", "Top 12", "Other"],
-                    data: [0, 0, 0, 1]
-                },
-                {
-                    labels: ["Victories", "Top 3", "Top 6", "Other"],
-                    data: [0, 0, 0, 1]
-                }
+                { labels: ["Victories", "Top 10", "Top 25", "Other"], data: [0, 0, 0, 1] },
+                { labels: ["Victories", "Top 5", "Top 12", "Other"], data: [0, 0, 0, 1] },
+                { labels: ["Victories", "Top 3", "Top 6", "Other"], data: [0, 0, 0, 1] }
             ]
         ];
-        this.selected = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](0);
+        // array of tabs
         this.views = [
-            {
-                title: "PC",
-                iconLink: "https://image.flaticon.com/icons/svg/33/33418.svg"
-            },
-            {
-                title: "Xbox",
-                iconLink: "https://image.flaticon.com/icons/svg/1/1321.svg"
-            },
-            {
-                title: "PS4",
-                iconLink: "https://image.flaticon.com/icons/svg/34/34221.svg"
-            }
+            { title: "PC", iconLink: "https://image.flaticon.com/icons/svg/33/33418.svg" },
+            { title: "Xbox", iconLink: "https://image.flaticon.com/icons/svg/1/1321.svg" },
+            { title: "PS4", iconLink: "https://image.flaticon.com/icons/svg/34/34221.svg" }
         ];
+        // log the id we sent 
         console.log(this.data.ID);
+        // send id
         this.getStats();
     }
     ProfileModalComponent.prototype.ngOnInit = function () {
     };
     ProfileModalComponent.prototype.getStats = function () {
+        // call the service
         this.fortniteAPI.callFortniteAPI(this.onResponse.bind(this), this.data.ID);
     };
-    ProfileModalComponent.prototype.onResponse = function (stats, ID) {
-        this.ID = ID;
+    ProfileModalComponent.prototype.onResponse = function (stats) {
+        // when i recieve the player stats i hold it
         this.stats = stats;
+        // i wanted to find the users primary gaming platform
         var bestScore = -1;
         for (var i = 0; i < 3; i++) {
             if (stats[i].object == null || stats[i].object.totals.score == 0) {
+                //stats not there, leave empty
                 this.buts[i] = true;
             }
             else {
+                // populate pie charts
                 var other = stats[i].object.stats.matchesplayed_solo - stats[i].object.stats.placetop1_solo - stats[i].object.stats.placetop10_solo - stats[i].object.stats.placetop25_solo;
                 this.chartData[i][0].data = [stats[i].object.stats.placetop1_solo, stats[i].object.stats.placetop10_solo, stats[i].object.stats.placetop25_solo, other];
                 other = stats[i].object.stats.matchesplayed_duo - stats[i].object.stats.placetop1_duo - stats[i].object.stats.placetop5_duo - stats[i].object.stats.placetop12_duo;
                 this.chartData[i][1].data = [stats[i].object.stats.placetop1_duo, stats[i].object.stats.placetop5_duo, stats[i].object.stats.placetop12_duo, other];
                 other = stats[i].object.stats.matchesplayed_squad - stats[i].object.stats.placetop1_squad - stats[i].object.stats.placetop3_squad - stats[i].object.stats.placetop6_squad;
                 this.chartData[i][2].data = [stats[i].object.stats.placetop1_squad, stats[i].object.stats.placetop3_squad, stats[i].object.stats.placetop6_squad, other];
+                // primary gaming platform based on "score"
                 if (bestScore < stats[i].object.totals.score) {
                     this.selected.setValue(i);
                 }
-            } //set by score...
+            }
         }
-        // console.log(this.stats)
-        // console.log(this.buts)
-        if (this.buts[0] && this.buts[1] && this.buts[2]) {
-            this.invalid = true;
-        }
-        else {
+        // if any platforms are found, exit loading screen
+        if (!(this.buts[0] && this.buts[1] && this.buts[2])) {
             this.show = true;
         }
-        // console.log(this.invalid)
-        // console.log(this.show)
-    };
-    // events
-    ProfileModalComponent.prototype.chartClicked = function (e) {
-        console.log(e);
-    };
-    ProfileModalComponent.prototype.chartHovered = function (e) {
-        console.log(e);
     };
     ProfileModalComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1188,9 +953,219 @@ var ProfileModalComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./profile-modal.component.css */ "./src/app/profile-modal/profile-modal.component.css")]
         }),
         __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
-        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"], Object, _fortnite_API_fortnite_api_service__WEBPACK_IMPORTED_MODULE_2__["FortniteApiService"]])
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"], Object, _services_fortnite_API_fortnite_api_service__WEBPACK_IMPORTED_MODULE_2__["FortniteApiService"]])
     ], ProfileModalComponent);
     return ProfileModalComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/fortnite-API/fortnite-api.service.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/services/fortnite-API/fortnite-api.service.ts ***!
+  \***************************************************************/
+/*! exports provided: FortniteApiService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FortniteApiService", function() { return FortniteApiService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var FortniteApiService = /** @class */ (function () {
+    function FortniteApiService(http) {
+        this.http = http;
+    }
+    FortniteApiService.prototype.callFortniteAPI = function (callback_fun, ID) {
+        var _this = this;
+        console.log("Get request sent to: https://fortnite-public-api.theapinetwork.com/prod09/users/id?username=" + encodeURI(ID));
+        this.http.get("api/FortniteAPI/username/" + encodeURI(ID))
+            .subscribe(function (data) {
+            // get the overall metadata on the username including database id and platforms
+            var res = JSON.parse(data._body);
+            var stats = [
+                { object: null },
+                { object: null },
+                { object: null }
+            ];
+            try {
+                if (res.error) {
+                    callback_fun(stats);
+                    return;
+                }
+            }
+            catch (error) {
+                console.log(error);
+            }
+            // get stats in iterative fuction based platforms and id
+            _this.getStats(callback_fun, res, 0, stats);
+        }, function (error) {
+            console.log(error);
+        } // error path
+        );
+    };
+    FortniteApiService.prototype.getStats = function (callback_fun, res, i, stats) {
+        var _this = this;
+        // end the iteration in a similar fashion to for loops and 
+        //          call the onResponse function in the profile modal component
+        if (i >= res.platforms.length) {
+            callback_fun(stats);
+            return;
+        }
+        // based on fortnite api rules. check console for cleaner looking version
+        var params = "user_id=" + res.uid + "&platform=" + res.platforms[i];
+        console.log("Get request sent to: https://fortnite-public-api.theapinetwork.com/prod09/users/public/br_stats?" + params);
+        this.http.get("api/FortniteAPI/stats/" + params)
+            .subscribe(function (data) {
+            // based on which platform the stats are for populat stats
+            if ("pc" == res.platforms[i]) {
+                stats[0].object = JSON.parse(data._body);
+            }
+            else if ("xb1" == res.platforms[i]) {
+                stats[1].object = JSON.parse(data._body);
+            }
+            else if ("ps4" == res.platforms[i]) {
+                stats[2].object = JSON.parse(data._body);
+            }
+            // iterate
+            _this.getStats(callback_fun, res, i + 1, stats);
+        }, function (error) {
+            console.log(error);
+        } // error path
+        );
+    };
+    FortniteApiService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"]])
+    ], FortniteApiService);
+    return FortniteApiService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/fortniteStats/fortnite-stats.service.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/services/fortniteStats/fortnite-stats.service.ts ***!
+  \******************************************************************/
+/*! exports provided: FortniteStatsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FortniteStatsService", function() { return FortniteStatsService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var FortniteStatsService = /** @class */ (function () {
+    function FortniteStatsService(http) {
+        this.http = http;
+        // based on selection and fortnite stats api rules
+        this.gameMode = ["all", "solo", "duo", "squad"];
+        this.sortCol = ["kd", "kills", "matches", "score", "winrate", "wins"];
+        this.platform = ["pc", "xbox", "ps4"];
+        // order in FS
+        // Name-K/D-Kills-Wins-Matches-Winrate-Score
+        // two templates used for formatting
+        this.corrected = [
+            {
+                Name: 'Example',
+                KDRatio: '111',
+                Kills: '111',
+                Wins: '111',
+                Matches: '111',
+                Winrate: '111',
+                Score: '111'
+            }
+        ];
+        this.newRow = {
+            Name: 'Example',
+            KDRatio: '111',
+            Kills: '111',
+            Wins: '111',
+            Matches: '111',
+            Winrate: '111',
+            Score: '111'
+        };
+    }
+    FortniteStatsService.prototype.callFS = function (callback_fun, page, sortCol, gameMode, platform) {
+        var _this = this;
+        var params = "page=" + page +
+            "&sort=" + this.gameMode[gameMode] +
+            "-" + this.sortCol[sortCol] +
+            "+&platform=" + this.platform[platform];
+        // based on fortnite stats api rules. check console for cleaner looking version
+        console.log("Get request sent to: https://fortnitestats.net/?" + params);
+        this.http.get("api/FortniteStats/" + params)
+            .subscribe(function (data) {
+            //scraping html
+            var split = data._body.toString().split('<tr class="player-row">');
+            split[50] = split[50].split("/tbody>")[0];
+            _this.corrected = [];
+            var i = 0;
+            for (i = 0; i < 50; i++) {
+                var fSRow = split[i + 1];
+                var rowSplit = fSRow.split(">");
+                if (rowSplit.length != 20) {
+                    // an accepable error
+                    console.log("error: due to > character in name");
+                    console.log(fSRow);
+                }
+                else {
+                    // set the new row based on the page layout     
+                    _this.newRow = {
+                        Name: rowSplit[4].split("</a")[0],
+                        KDRatio: rowSplit[7].split("</td")[0],
+                        Kills: rowSplit[9].split("</td")[0],
+                        Wins: rowSplit[11].split("</td")[0],
+                        Matches: rowSplit[13].split("</td")[0],
+                        Winrate: rowSplit[15].split("</td")[0],
+                        Score: rowSplit[17].split("</td")[0]
+                    };
+                }
+                // console.log(newRow)
+                _this.corrected.push(_this.newRow);
+            }
+            // call the onFSLoad or onNextFSLoad function in the main component
+            callback_fun(_this.corrected);
+        }, function (error) {
+            console.log(error);
+        } // error path
+        );
+    };
+    FortniteStatsService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"]])
+    ], FortniteStatsService);
+    return FortniteStatsService;
 }());
 
 
@@ -1260,7 +1235,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Noah\Desktop\GitHub\signal\signal\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Noah\Desktop\GitHub\ForniteLeaderboards\signal\signal\src\main.ts */"./src/main.ts");
 
 
 /***/ })

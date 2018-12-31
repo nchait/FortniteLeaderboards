@@ -27,7 +27,7 @@ router.route('/FortniteAPI/username/:parameters')
         request(url, { json: true }, (err, resp, body) => {
             if (err) 
                 { return console.log(err); }
-            console.log(body)
+            // console.log(body)
             res.send(body);
         });
     });
@@ -38,7 +38,7 @@ router.route('/FortniteAPI/stats/:parameters')
         request(url, { json: true }, (err, resp, body) => {
             if (err) 
                 { return console.log(err); }
-            console.log(body)
+            // console.log(body)
             res.send(body);
         });
     });
@@ -48,7 +48,7 @@ router.route('/FortniteStats/:parameters')
         request(url, { json: true }, (err, resp, body) => {
             if (err) 
                 { return console.log(err); }
-            console.log(body)
+            // console.log(body)
             res.send(body);
         });
     });
