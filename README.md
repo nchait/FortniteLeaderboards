@@ -1,6 +1,7 @@
 To run this, go to the signal/production folder. 
 Run 
-> npm install 
+> npm install
+
 Then run
 > node index.js
 
